@@ -1,24 +1,16 @@
-# README
+# nipo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+建設会社向けの作業日報と勤務表の作成、管理ができるWEBアプリケーション
 
-Things you may want to cover:
+## 目指した課題解決
+業務の効率化を目的とした日報のペーパーレス化と管理
 
-* Ruby version
+## 設計書
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS: Linux(Centos)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
