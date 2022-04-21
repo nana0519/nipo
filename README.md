@@ -7,6 +7,7 @@
 業務の効率化を目的とした日報のペーパーレス化と管理
 
 ## 設計書
+- [ER図](https://app.diagrams.net/#G1aPym1UllXOQnAMheM5zgTHDRmk9udDp2)
 
 ## 開発環境
 - OS: Linux(Centos)
