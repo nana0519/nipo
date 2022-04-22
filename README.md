@@ -8,6 +8,7 @@
 
 ## 設計書
 - [ER図](https://app.diagrams.net/#G1aPym1UllXOQnAMheM5zgTHDRmk9udDp2)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/162b0y8t38mfhZ2PmE1W0p3uafk_nuOrG34dVO20m4gU/edit?usp=sharing)
 
 ## 開発環境
 - OS: Linux(Centos)
