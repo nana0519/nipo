@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
+  prepend_before_action :require_no_authentication, only: [:cancel]
+  before_action :ensure_admin, only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -38,7 +40,17 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def current_end_user_is_admin?
+    end_user_signed_in? && current_end_user.has_role?(:admin)
+  end
+
+  def sign_up(resource_name, resource)
+    if !current_end_user_is_admin?
+      sign_in(resource_name, resource)
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -59,4 +71,5 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
 end
