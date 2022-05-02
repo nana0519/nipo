@@ -2,6 +2,7 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, only: [:cancel]
+  before_action :creatable?, only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -10,6 +11,14 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def creatable?
+    if current_end_user_is_admin?
+      redirect_to new_end_user_registration_path
+    else
+      redirect_to new_end_user_session_path, alert: "画面を閲覧する権利がありません。"
+    end
+  end
+  
   # POST /resource
   # def create
   #   super
@@ -70,5 +79,5 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
+
 end
