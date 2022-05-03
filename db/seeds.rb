@@ -9,5 +9,6 @@
 Admin.create!(
   email: ENV["ADMIN_EMAIL"],
   name: ENV["ADMIN_NAME"],
-  password: ENV["ADMIN_PASSWORD"]
+  password: ENV["ADMIN_PASSWORD"],
+  role_id: 1
   )
