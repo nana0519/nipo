@@ -3,9 +3,8 @@
 class Public::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, only: [:cancel]
   before_action :creatable?, only: [:new, :create]
-  before_action :configure_sign_up_params, only: [:create]
-  authorize_resource
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -42,25 +41,16 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
-
-  def current_end_user_is_admin?
-    end_user_signed_in? && current_end_user.roles.has_role?(:admin)
-  end
-
-  def sign_up(resource_name, resource)
-    if !current_end_user_is_admin?
-      sign_in(resource_name, resource)
-    end
-  end
-
+  private
 
   def creatable?
-    raise CanCan::AccessDenied unless end_user_signed_in?
-
-    if !current_end_user_is_admin?
-      raise CanCan::AccessDenied
+    if !current_admin
+      redirect_to new_end_user_session_path
     end
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
