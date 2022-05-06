@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
   
+  scope module: :public do
+    resources :daily_reports, only: [:new, :create]
+  end
+  
   # 管理者
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"

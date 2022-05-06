@@ -5,6 +5,5 @@
 
 #   def initialize(user)
 #     end_user ||= EndUser.new
-  
 #   end
 # end
