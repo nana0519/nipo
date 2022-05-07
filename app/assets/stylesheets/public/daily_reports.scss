@@ -1,3 +1,17 @@
 // Place all the styles related to the public/daily_reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.daily-report {
+  width: 80%;
+  height: 1000px;
+  margin: 0 auto;
+  background-color: #fcfbf3;
+  
+  &__heading {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    border-bottom: solid 2px #000;
+  }
+}
