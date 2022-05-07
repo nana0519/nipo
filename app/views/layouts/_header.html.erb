@@ -1,0 +1,13 @@
+<header>
+  <div class="header__logo"></div>
+  <nav>
+    <ul>
+      <!--end_userログイン後-->
+      <% if end_user_signed_in? %>
+        <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
+      <% elsif admin_signed_in? %>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      <% end %>
+    </ul>
+  </nav>
+</header>
