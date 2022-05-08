@@ -1,13 +1,15 @@
-<header>
+<header class="header">
   <div class="header__logo"></div>
-  <nav>
-    <ul>
-      <!--end_userログイン後-->
-      <% if end_user_signed_in? %>
-        <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
-      <% elsif admin_signed_in? %>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      <% end %>
-    </ul>
-  </nav>
+  <ul class="header__link">
+    <!--end_userログイン後-->
+    <% if end_user_signed_in? %>
+      <li class="header__link--item">
+        <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: "header__link--item" %>
+      </li>
+    <% elsif admin_signed_in? %>
+      <li class="header__link--item">
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header__link--item" %>
+      </li>
+    <% end %>
+  </ul>
 </header>
