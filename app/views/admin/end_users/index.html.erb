@@ -1,0 +1,25 @@
+<h2 class="heading">社員一覧</h2>
+<table class="table">
+  <thead>
+    <tr class="table__row">
+      <td class="table__item">社員名</td>
+      <td class="table__item">ステータス</td>
+      <td class="table__item"></td>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @end_users.each do |end_user| %>
+    <tr class="table__row">
+      <td class="table__item"><%= end_user.name %></td>
+      <td class="table__item">
+        <% if end_user.retirement == false %>
+          <span>在籍中</span>
+        <% else %>
+          <span>退職</span>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
