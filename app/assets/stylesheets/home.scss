@@ -1,0 +1,23 @@
+.home {
+  width: 90%;
+  display: flex;
+
+  &__category {
+    display: inline-block;
+    width: 150px;
+    height: 80px;
+    margin: 50px 30px 10px;
+    border: solid 2px #8FBC8F;
+    border-radius: 3px;
+    transition: .4s;
+    text-align: center;
+    color: #8FBC8F;
+    text-decoration: none;
+    line-height: 80px;
+    font-size: large;
+  }
+  &__category:hover {
+    background-color: #8FBC8F;
+    color: #fff;
+  }
+}

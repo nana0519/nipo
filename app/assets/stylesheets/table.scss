@@ -1,0 +1,9 @@
+.table {
+  width: 50%;
+  margin: 10px auto;
+  
+  &__row {
+    border-bottom: solid 1px #000;
+    text-align: center;
+  }
+}
