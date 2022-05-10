@@ -1,0 +1,34 @@
+<h2 class="heading">社員編集</h2>
+
+<%= form_with model: @end_user, url: admin_end_user_path(@end_user), local: true do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :名前 %></th>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :パスワード %></th>
+      <td><%= f.text_field :password %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :ステータス %></th>
+      <td>
+        <%= f.radio_button :retirement, false %>
+        <%= f.label :ステータス, "在籍中", value: false %>
+        <%= f.radio_button :retirement, true %>
+        <%= f.label :ステータス, "退職", value: true %>
+      </td>
+    </tr>
+  </table>
+  <div>
+    <%= f.submit "変更を保存" %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "社員一覧へ戻る", admin_end_users_path %>
+</div>
