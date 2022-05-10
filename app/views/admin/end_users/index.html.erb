@@ -1,6 +1,11 @@
 <h2 class="heading">社員一覧</h2>
+
+<div class="link">
+  <%= link_to "社員登録", new_end_user_registration_path, class: "link__green" %>
+</div>
+
 <table class="table">
-  <thead>
+  <thead class="table__heading">
     <tr class="table__row">
       <td class="table__item">社員名</td>
       <td class="table__item">ステータス</td>
@@ -19,7 +24,16 @@
           <span>退職</span>
         <% end %>
       </td>
+      <td class="table__item">
+        <% if current_admin %>
+          <%= link_to "編集", edit_admin_end_user_path(end_user) %>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+<div class="link__paginate">
+  <%= paginate @end_users %>
+</div>

@@ -1,0 +1,30 @@
+.link {
+  width: 100%;
+
+  &__green {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    margin: 10px 70px 40px;
+    border: solid 2px #8FBC8F;
+    background-color: #8FBC8F;
+    border-radius: 3px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    line-height: 30px;
+    font-size: large;
+    transition: .4s;
+  }
+  
+  &__green:hover {
+    background-color: #006633;
+    border-color: #006633;
+  }
+  
+  &__paginate {
+    width: 70%;
+    margin: 20px 0;
+    text-align: center;
+  }
+}
