@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
+  devise_scope :end_user do
+    get "end_users/:id/edit" => "end_users/registrations#edit", as: :edit_other_end_user_registration
+    match "end_users/:id", to: "end_users/registrations#update", via: [:patch, :put], as: :other_end_user_registaration
+  end
   
   scope module: :public do
     resources :daily_reports, only: [:new, :create]

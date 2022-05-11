@@ -8,7 +8,7 @@ class Admin::EndUsersController < ApplicationController
   def edit
     @end_user = EndUser.find(params[:id])
   end
-  
+
   def update
     @end_user = EndUser.find(params[:id])
     if @end_user.update(end_user_params)
@@ -21,6 +21,6 @@ class Admin::EndUsersController < ApplicationController
   private
   
   def end_user_params
-    params.require(:end_user).permit(:name, :email, :retirement, :password)
+    params.require(:end_user).permit(:name, :email, :retirement)
   end
 end
