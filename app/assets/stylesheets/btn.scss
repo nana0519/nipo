@@ -1,0 +1,19 @@
+.btn {
+  width: 60%;
+  margin: 30px auto;
+  
+  &__green {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    transition: .4s;
+    background-color: #8FBC8F;
+    border: solid 2px #8FBC8F;
+    color: #fff;
+    font-size: large;
+  }
+  &__green:hover {
+    background-color: #006633;
+    border-color: #006633;
+  }
+}
