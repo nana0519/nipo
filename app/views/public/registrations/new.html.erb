@@ -1,6 +1,6 @@
 <h2 class="heading">社員登録</h2>
 
-<%= form_with model:@end_user, url:end_user_registration_path do |f| %>
+<%= form_with model: @end_user, url: end_user_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
   
   <table class="table">
@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <th class="table__label"><%= f.label :email %></th>
-      <td class="table__form"><%= f.email_field :email, autocomplete: "email" %></td>
+      <td class="table__form"><%= f.text_field :email, autocomplete: "email" %></td>
     </tr>
     <tr>
       <th class="table__label">
