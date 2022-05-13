@@ -2,6 +2,7 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, only: [:cancel]
+  prepend_before_action :authenticate_scope!, only: [:update, :destroy]
   before_action :creatable?, only: [:new, :create]
   before_action :editable?, only: [:edit, :updat]
   before_action :configure_permitted_parameters, if: :devise_controller?
