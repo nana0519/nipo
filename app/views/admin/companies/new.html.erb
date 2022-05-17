@@ -1,0 +1,30 @@
+<h2 class="heading">業者登録</h2>
+
+<%= form_with model: @company, url: admin_companies_path, loclal: false do |f| %>
+  <table class="table">
+    <tr>
+      <th class="table__label">業者名</th>
+      <td class="table__form"><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <th class="table__label">電話番号</th>
+      <td class="table__form"><%= f.text_field :telephone_number %></td>
+    </tr>
+    <tr>
+      <th class="table__label">email</th>
+      <td class="table__form"><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <th class="table__label">FAX</th>
+      <td class="table__form"><%= f.text_field :fax_number %></td>
+    </tr>
+    <tr>
+      <th class="table__label">締め日</th>
+      <td class="table__form"><%= f.select :deadline, Company.deadlines.keys.to_a, {} %></td>
+    </tr>
+  </table>
+  
+  <div class="btn">
+    <%= f.submit "登録", class: "btn__green" %>
+  </div>
+<% end %>
