@@ -1,1 +1,31 @@
 <h2 class="heading">業者</h2>
+
+<div class="link">
+    <%= link_to "業者登録", new_admin_company_path, class: "link__green" %>
+</div>
+
+<table class="table">
+    <thead class="table__heading">
+        <tr class="table__row">
+            <th class="table__item">業者名</th>
+            <th class="table__item">電話番号</th>
+            <th class="table__item">FAX</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @companies.each do |company| %>
+            <tr class="table__row">
+                <td class="table__item">
+                    <%= link_to company.name, admin_company_path(company) %>
+                </td>
+                <td class="table__item"><%= company.telephone_number %></td>
+                <td class="table__item"><%= company.fax_number %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<div class="link__paginate">
+    <%= paginate @companies %>
+</div>
