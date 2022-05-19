@@ -17,6 +17,10 @@ class Admin::CompaniesController < ApplicationController
   def index
     @companies = Company.page(params[:page])
   end
+  
+  def show
+    @company = Company.find(params[:id])
+  end
 
   private
 

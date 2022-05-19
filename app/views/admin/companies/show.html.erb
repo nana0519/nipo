@@ -1,0 +1,32 @@
+<h2 class="heading">業者詳細</h2>
+
+<div class="link__right">
+  <%= link_to "編集", edit_admin_company_path, class: "link__right--red" %>
+</div>
+
+<table class="chart">
+  <tr class="chart__row">
+    <th class="chart__label">業者名</th>
+    <td class="chart__item"><%= @company.name %></td>
+  </tr>
+  <tr class="chart__row">
+    <th class="chart__label">電話番号</th>
+    <td class="chart__item"><%= @company.telephone_number %></td>
+  </tr>
+  <tr class="chart__row">
+    <th class="chart__label">FAX</th>
+    <td class="chart__item"><%= @company.fax_number %></td>
+  </tr>
+  <tr class="chart__row">
+    <th class="chart__label">email</th>
+    <td class="chart__item"><%= @company.email %></td>
+  </tr>
+  <tr class="chart__row">
+    <th class="chart__label">締め日</th>
+    <td class="chart__item"><%= @company.deadline %></td>
+  </tr>
+</table>
+
+<div class="link__right">
+  <%= link_to "戻る", admin_companies_path %>
+</div>
