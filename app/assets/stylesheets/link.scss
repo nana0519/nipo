@@ -27,4 +27,25 @@
     margin: 20px 0;
     text-align: center;
   }
+  
+  &__right {
+    width: 80%;
+    text-align: right;
+    
+    &--red {
+      display: inline-block;
+      width: 50px;
+      height: 30px;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      line-height: 30px;
+      transition: .4s;
+      background-color: #CC6666;
+    }
+    
+    &--red:hover {
+      background-color: #CC3333;
+    }
+  }
 }
