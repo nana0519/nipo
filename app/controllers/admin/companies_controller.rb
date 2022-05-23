@@ -17,13 +17,22 @@ class Admin::CompaniesController < ApplicationController
   def index
     @companies = Company.page(params[:page])
   end
-  
+
   def show
     @company = Company.find(params[:id])
   end
-  
+
   def edit
     @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    if @company.update(company_params)
+      redirect_to admin_company_path(@company)
+    else
+      render "edit"
+    end
   end
 
   private
