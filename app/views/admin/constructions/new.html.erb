@@ -1,0 +1,31 @@
+<h2 class="heading">現場登録</h2>
+
+<%= form_with model: @construction, url: admin_constructions_path, locla: false do |f| %>
+<table class="table">
+  <tr>
+    <th class="table__label">現場名</th>
+    <td class="table__form"><%= f.text_field :name%></td>
+  </tr>
+  <tr>
+    <th class="table__label">契約</th>
+    <td>
+      <%= f.radio_button :contract, true %>
+      <%= f.label :契約, "請負", value: true %>
+      <%= f.radio_button :content, false %>
+      <%= f.label :契約, "常用", value: false %>
+    </td>
+  </tr>
+  <tr>
+    <th class="table__label">詳細</th>
+    <td class="table__form"><%= f.text_area :content %></td>
+  </tr>
+  <tr>
+    <th class="table__label">住所</th>
+    <td class="table__form"><%= f.text_field :address %></td>
+  </tr>
+</table>
+
+<div class="btn">
+  <%= f.submit "登録", class: "btn__green" %>
+</div>
+<% end %>
