@@ -1,0 +1,27 @@
+<h2 class="heading">現場一覧</h2>
+
+<div class="link">
+  <%= link_to "登録", new_admin_construction_path, class: "link__green" %>
+</div>
+
+<table class="table">
+  <thead class="table__heading">
+    <tr class="table__row">
+      <th class="table__item">現場名</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @constructions.each do |construction| %>
+      <tr class="table__row">
+        <td class="table__item">
+          <%= link_to construction.name, admin_construction_path(construction) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="link__paginate">
+  <%= paginate @constructions %>
+</div>
