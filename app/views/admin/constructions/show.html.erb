@@ -1,0 +1,34 @@
+<h2 class="heading">現場詳細</h2>
+
+<div class="link__right">
+  <%= link_to "編集", edit_admin_construction_path, class: "link__right--red" %>
+</div>
+
+<table class="chart">
+  <tr class="chart__row">
+    <th class="chart__label">現場名</th>
+    <td class="chart__item"><%= @construction.name %></td>
+  </tr>
+  <tr class="chart__row">
+    <th class="chart__label">契約</th>
+    <td class="chart__item">
+      <% if @construction.contract == true %>
+        請負
+      <% elsif @construction.contract == false %>
+        常用
+      <% end %>
+    </td>
+  </tr>
+  <tr class="chart__row">
+    <th class="chart__label">詳細</th>
+    <td class="chart__item"><%= @construction.content %></td>
+  </tr>
+  <tr class="chart__row">
+    <th class="chart__label">住所</th>
+    <td class="chart__item"><%= @construction.address %></td>
+  </tr>
+</table>
+
+<div class="link__right">
+  <%= link_to "戻る", admin_constructions_path %>
+</div>

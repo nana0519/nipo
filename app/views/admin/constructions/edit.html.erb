@@ -1,0 +1,32 @@
+<h2 class="heading">現場編集</h2>
+
+<%= form_with model: @construction, url: admin_construction_path(@construction), local: false do |f| %>
+  <table class="table">
+    
+      <tr>
+        <th class="table__item">現場名</th>
+        <td class="table__item"><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th class="table__item">契約</th>
+        <td>
+          <%= f.radio_button :contract, true %>
+          <%= f.label :契約, "請負", value: true %>
+          <%= f.radio_button :contract, false %>
+          <%= f.label :契約, "常用", value: false %>
+        </td>
+      </tr>
+      <tr>
+        <th class="table__item">詳細</th>
+        <td class="table__item"><%= f.text_area :content %></td>
+      </tr>
+      <tr>
+        <th class="table__item">住所</th>
+        <td class="table__item"><%= f.text_field :address %></td>
+      </tr>
+  </table>
+  
+  <div class="btn">
+    <%= f.submit "編集", class: "btn__green" %>
+  </div>
+<% end %>
