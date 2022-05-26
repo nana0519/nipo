@@ -1,0 +1,14 @@
+<h2 class="heading">日報登録</h2>
+
+<%= form_with model: @daily_report, url: admin_daily_reports_path, loclal: false do |f| %>
+  <table class="table">
+    <tr>
+      <th class="table__item">画像</th>
+      <td class="table__item"><%= f.file_field :daily_report_images %></td>
+    </tr>
+  </table>
+
+  <div class="btn">
+    <%= f.submit "登録", class: "btn__green" %>
+  </div>
+<% end %>
