@@ -6,6 +6,18 @@
       <th class="table__item">画像</th>
       <td class="table__item"><%= f.file_field :daily_report_images %></td>
     </tr>
+    <tr>
+      <th class="table__item">従業員名</th>
+      <td class="table__item"><%= f.text_field :end_user_id %></td>
+    </tr>
+    <tr>
+      <th class="table__item">業者名</th>
+      <td class="table__form"><%= f.text_field :company_id %></td>
+    </tr>
+    <tr>
+      <th class="table__item">現場名</th>
+      <td class="table__item"><%= f.text_field :construction_id %></td>
+    </tr>
   </table>
 
   <div class="btn">
