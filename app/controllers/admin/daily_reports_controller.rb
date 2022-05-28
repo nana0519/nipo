@@ -1,4 +1,5 @@
 class Admin::DailyReportsController < ApplicationController
+  before_action :authenticate_admin!
   
   def new
     @daily_report = DailyReport.new
