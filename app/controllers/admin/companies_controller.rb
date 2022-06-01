@@ -38,6 +38,6 @@ class Admin::CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :telephone_number, :email, :fax_number, :deadline)
+    params.require(:company).permit(:company_name, :telephone_number, :email, :fax_number, :deadline)
   end
 end

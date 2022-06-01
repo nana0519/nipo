@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     resources :daily_reports do
       collection do
         get :constructions_index
+      end
+      member do
         get :end_users_index
       end
     end
