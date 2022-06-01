@@ -1,0 +1,9 @@
+<h2 class="heading">日報</h2>
+
+<div>
+  <% if @daily_report.daily_report_images.attached? %>
+    <% @daily_report.daily_report_images.each do |image| %>
+      <%= image_tag image, size: "1000x1500" %>
+    <% end %>
+  <% end %>
+</div>

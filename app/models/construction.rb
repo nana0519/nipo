@@ -1,3 +1,3 @@
 class Construction < ApplicationRecord
-  belongs_to :daily_report
+  has_many :daily_reports, dependent: :destroy
 end
