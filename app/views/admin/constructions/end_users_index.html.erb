@@ -1,0 +1,20 @@
+<h2 class="heading"><%= @daily_report.construction.construction_name %></h2>
+
+<table class="table">
+    <thead class="table__heading">
+        <tr class="table__row">
+            <th class="table__item">日付</th>
+            <th class="table__item">従業員名</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @construction.daily_reports.each do |daily_report| %>
+            <tr class="table__row">
+                <td class="table__item"></td>
+                <td class="table__item"><%= daily_report.end_user.name %></td>
+            </tr>
+        <% end %>
+    </tbody>
+    
+</table>

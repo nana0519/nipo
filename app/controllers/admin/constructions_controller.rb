@@ -17,6 +17,14 @@ class Admin::ConstructionsController < ApplicationController
   def index
     @constructions = Construction.page(params[:page])
   end
+  
+  def constructions_index
+    @constructions = Construction.page(params[:page])
+  end
+
+  def end_users_index
+    @construction = Construction.find(params[:id])
+  end
 
   def show
     @construction = Construction.find(params[:id])
