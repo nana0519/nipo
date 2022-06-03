@@ -1,15 +1,23 @@
-<h2 class="heading">日報</h2>
+<div class="daily-report">
+  <h2 class="daily-report__heading">作 業 日 報</h2>
 
-<div>
-  <% if @daily_report.daily_report_images.attached? %>
-    <% @daily_report.daily_report_images.each do |image| %>
-      <%= image_tag image, size: "1000x1500" %>
+  <div>
+    <% if @daily_report.daily_report_images.attached? %>
+      <% @daily_report.daily_report_images.each do |image| %>
+        <%= image_tag image, size: "1000x1500" %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<table>
-  <tr>
-    <td>Date:<%= @daily_report.date.strftime("%Y年%m月%d日") %></td>
-  </tr>
-</table>
+  <table class="daily-report__contents">
+    <tr>
+      <td>
+        作業日時：<%= @daily_report.date.strftime("%Y年%m月%d日") %>
+        天候：<%= @daily_report.weather %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= @daily_report.end_user.name %></td>
+    </tr>
+  </table>
+</div>
