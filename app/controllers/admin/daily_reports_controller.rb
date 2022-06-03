@@ -21,6 +21,6 @@ class Admin::DailyReportsController < ApplicationController
   private
 
    def daily_report_params
-    params.require(:daily_report).permit(:end_user_id, :company_id, :construction_id, daily_report_images: [])
+    params.require(:daily_report).permit(:date, :end_user_id, :company_id, :construction_id, daily_report_images: [])
    end
 end
