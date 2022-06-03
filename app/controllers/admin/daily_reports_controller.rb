@@ -7,19 +7,11 @@ class Admin::DailyReportsController < ApplicationController
 
   def create
     @daily_report = DailyReport.new(daily_report_params)
-    if @daily_report.save!
+    if @daily_report.save
       redirect_to admin_daily_report_path(@daily_report)
     else
       render "new"
     end
-  end
-
-  def constructions_index
-    @constructions = Construction.page(params[:page])
-  end
-
-  def end_users_index
-    @daily_report = DailyReport.find(params[:id])
   end
 
   def show
@@ -29,6 +21,6 @@ class Admin::DailyReportsController < ApplicationController
   private
 
    def daily_report_params
-    params.require(:daily_report).permit(:end_user_id, :company_id, :construction_id, daily_report_images: [])
+    params.require(:daily_report).permit(:date, :end_user_id, :company_id, :construction_id, daily_report_images: [])
    end
 end

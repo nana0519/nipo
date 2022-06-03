@@ -7,6 +7,10 @@
       <td class="table__item"><%= f.file_field :daily_report_images %></td>
     </tr>
     <tr>
+      <th class="table__item">日付</th>
+      <td class="table__item"><%= f.date_field :date %></td>
+    </tr>
+    <tr>
       <th class="table__item">従業員名</th>
       <td class="table__item"><%= f.collection_select :end_user_id, EndUser.all, :id, :name %></td>
     </tr>

@@ -1,0 +1,27 @@
+<h2 class="heading"><%= @construction.construction_name %></h2>
+
+<table class="table">
+    <thead class="table__heading">
+        <tr class="table__row">
+            <th class="table__item">Date：Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @daily_reports.each do |daily_report| %>
+            <tr class="table__row">
+                <td class="table__item">
+                    <%= link_to admin_daily_report_path(daily_report) do %>
+                        <%= daily_report.date.strftime("%Y年%m月%d日") %>：
+                        <%= daily_report.end_user.name %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+
+</table>
+
+<div class="paginate">
+    <%= paginate @daily_reports %>
+</div>

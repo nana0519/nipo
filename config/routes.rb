@@ -22,8 +22,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :end_users, only: [:index, :edit, :update]
     resources :companies, only: [:new, :create, :index, :show, :edit, :update]
-    resources :constructions, only: [:index, :show, :new, :create, :edit, :update]
-    resources :daily_reports do
+    resources :constructions, only: [:index, :show, :new, :create, :edit, :update] do
       collection do
         get :constructions_index
       end
@@ -31,6 +30,8 @@ Rails.application.routes.draw do
         get :end_users_index
       end
     end
+    resources :daily_reports
+      
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
