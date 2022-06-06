@@ -1,15 +1,72 @@
-<h2 class="heading">日報</h2>
+<div class="daily-report">
+  <h2 class="daily-report__heading">作 業 日 報</h2>
 
-<div>
-  <% if @daily_report.daily_report_images.attached? %>
-    <% @daily_report.daily_report_images.each do |image| %>
-      <%= image_tag image, size: "1000x1500" %>
+  <div>
+    <% if @daily_report.daily_report_images.attached? %>
+      <% @daily_report.daily_report_images.each do |image| %>
+        <%= image_tag image, size: "1000x1500" %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<table>
-  <tr>
-    <td>Date:<%= @daily_report.date.strftime("%Y年%m月%d日") %></td>
-  </tr>
-</table>
+  <table class="daily-report__contents1">
+    <tr class="daily-report__left">
+      <td class="daily-report__left--item">作業日時：<%= @daily_report.date.strftime("%Y年%m月%d日") %></td>
+      <td class="daily-report__left--item">天候：<%= @daily_report.weather %></td>
+    </tr>
+
+    <tr class="daily-report__left">
+      <td class="daily-report__left--item">記入者：<%= @daily_report.end_user.name %></td>
+    </tr>
+  </table>
+
+  <table class="daily-report__contents2">
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">業者名</th>
+      <td class="daily-report__item-form"><%= @daily_report.company.company_name %></td>
+    </tr>
+
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">現場名</th>
+      <td class="daily-report__item-form">
+        <%= @daily_report.construction.construction_name %>
+         <% if @daily_report.construction.contract == true %>
+        　（請負）
+        <% elsif @daily_report.construction.contract == false %>
+          （常用）
+        <% else %>
+          （－）
+        <% end %>
+      </td>
+    </tr>
+
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">作業人数</th>
+      <td class="daily-report__item-side--small"><%= @daily_report.workers.length unless @daily_report.workers == nil %>人</td>
+      <th class="daily-report__item-heading">作業者名</th>
+      <td class="daily-report__item-side--form"><%= @daily_report.workers %></td>
+    </tr>
+
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">作業内容</th>
+      <td class="daily-report__item-area1"><%= @daily_report.content %></td>
+    </tr>
+
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">材料</th>
+      <td class="daily-report__item-area2"><%= @daily_report.material %></td>
+      <td class="daily-report__item-area2">【請求しない分】</td>
+    </tr>
+    
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">購入分<br>(燃料等)</th>
+      <td class="daily-report__item-area1"><%= @daily_report.purchase %></td>
+    </tr>
+    
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">車両番号</th>
+      <td class="daily-report__item-form"></td>
+    </tr>
+
+  </table>
+</div>

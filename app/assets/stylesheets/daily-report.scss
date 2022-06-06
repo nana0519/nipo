@@ -1,0 +1,81 @@
+// Place all the styles related to the public/daily_reports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.daily-report {
+  width: 80%;
+  height: 1000px;
+  margin: 20px auto;
+  border: solid 2px #000;
+
+  &__heading {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    border-bottom: solid 3px #000;
+  }
+
+  &__contents1 {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+  
+  &__contents2 {
+    width: 70%;
+    margin: 0 auto;
+    table-layout: fixed;
+  }
+
+  &__left {
+    text-align: left;
+   
+    &--item {
+      width: 40%;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__flex {
+    display: flex;
+  }
+
+  &__item-heading {
+    width: 100px;
+    background-color: #EEEEEE;
+    border: solid 1px #CCCCCC	;
+    padding: 5px;
+  }
+  
+ &__item-side {
+   &--small {
+     width: 10%;
+     border: solid 1px #CCCCCC;
+     padding: 5px;
+   }
+   &--form {
+     width: 63.2%;
+     border: solid 1px #CCCCCC;
+     padding: 5px;
+     overflow-wrap : break-word;
+   }
+ }
+
+  &__item-form {
+      width: 85%;
+      border: solid 1px #CCCCCC;
+      padding: 5px;
+  }
+  
+  &__item-area1 {
+    width: 85%;
+    padding: 0 0 100px 5px;
+    border: solid 1px #CCCCCC;
+  }
+  
+  &__item-area2 {
+    width: 42.5%;
+    padding: 0 0 80px 5px;
+    border: solid 1px #CCCCCC;
+  }
+}
