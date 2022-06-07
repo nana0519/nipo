@@ -1,0 +1,29 @@
+<h2 class="heading">車両一覧</h2>
+
+<div class="link">
+  <%= link_to "登録", new_admin_car_path, class: "link__green" %>
+</div>
+
+<table class="table">
+  <thead class="table__heading">
+    <tr class="table__row">
+      <th class="table__item">ナンバー</th>
+      <th class="table__item">ステータス</th>
+      <th class="table__item"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr class="table__row">
+        <td class="table__item"><%= car.number %></td>
+        <td class="table__item"><%= car.use == true ? "使用中" : "廃車" %></td>
+        <td><%= link_to "編集", edit_admin_car_path(car) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="link__paginate">
+  <%= paginate @cars %>
+</div>

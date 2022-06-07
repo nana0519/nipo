@@ -1,0 +1,23 @@
+<h2 class="heading">車両登録</h2>
+
+<%= form_with model: @car, url: admin_cars_path, local: false do |f| %>
+  <table class="table">
+    <tr>
+      <th class="table__item">車両ナンバー</th>
+      <td class="table__item"><%= f.text_field :number, :placeholder => "0000(ハイフンなし)" %></td>
+    </tr>
+    <tr>
+      <th class="table__item">ステータス</th>
+      <td>
+        <%= f.radio_button :use, true %>
+        <%= f.label :ステータス, "使用中" %>
+        <%= f.radio_button :use, false %>
+        <%= f.label :ステータス, "廃車" %>
+      </td>
+    </tr>
+  </table>
+  
+  <div class="btn">
+    <%= f.submit "登録", class: "btn__green" %>
+  </div>
+<% end %>
