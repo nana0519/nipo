@@ -53,8 +53,14 @@
      border: solid 1px #CCCCCC;
      padding: 5px;
    }
-   &--form {
+   &--form1 {
      width: 63.2%;
+     border: solid 1px #CCCCCC;
+     padding: 5px;
+     overflow-wrap : break-word;
+   }
+   &--form2 {
+     width: 41.3%;
      border: solid 1px #CCCCCC;
      padding: 5px;
      overflow-wrap : break-word;

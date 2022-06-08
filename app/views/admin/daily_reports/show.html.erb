@@ -44,7 +44,7 @@
       <th class="daily-report__item-heading">作業人数</th>
       <td class="daily-report__item-side--small"><%= @daily_report.workers.length unless @daily_report.workers == nil %>人</td>
       <th class="daily-report__item-heading">作業者名</th>
-      <td class="daily-report__item-side--form"><%= @daily_report.workers %></td>
+      <td class="daily-report__item-side--form1"><%= @daily_report.workers %></td>
     </tr>
 
     <tr class="daily-report__flex">
@@ -57,15 +57,41 @@
       <td class="daily-report__item-area2"><%= @daily_report.material %></td>
       <td class="daily-report__item-area2">【請求しない分】</td>
     </tr>
-    
+
     <tr class="daily-report__flex">
       <th class="daily-report__item-heading">購入分<br>(燃料等)</th>
-      <td class="daily-report__item-area1"><%= @daily_report.purchase %></td>
+      <td class="daily-report__item-area1">
+      <%= @daily_report.purchase %><%= @daily_report.price %>
+    </td>
     </tr>
-    
+
     <tr class="daily-report__flex">
       <th class="daily-report__item-heading">車両番号</th>
-      <td class="daily-report__item-form"></td>
+      <td class="daily-report__item-side--small"><%= @daily_report.car.number %></td>
+      <th class="daily-report__item-heading">距離数</th>
+      <td class="daily-report__item-side--form1">
+        (開始距離)<%= @daily_report.start_distance %><br>
+        (終了距離)<%= @daily_report.finish_distance %>
+      </td>
+    </tr>
+
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">高速代</th>
+      <td class="daily-report__item-form"><%= @daily_report.toll %>円</td>
+    </tr>
+
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">残業</th>
+      <td class="daily-report__item-side--small"><%= @daily_report.overtime %>h</td>
+      <th class="daily-report__item-heading">夜勤</th>
+      <td class="daily-report__item-side--small"><%= @daily_report.night_shift == false ? "無" : "有" %></td>
+      <th class="daily-report__item-heading">作業時間</th>
+      <td class="daily-report__item-side--form2"><%= @daily_report.start_time %>～<%= @daily_report.finish_time %></td>
+    </tr>
+
+    <tr class="daily-report__flex">
+      <th class="daily-report__item-heading">連絡事項</th>
+      <td class="daily-report__item-area1"><%= @daily_report.comment %></td>
     </tr>
 
   </table>
