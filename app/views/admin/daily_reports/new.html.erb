@@ -22,6 +22,10 @@
       <th class="table__item">現場名</th>
       <td class="table__item"><%= f.collection_select :construction_id, Construction.all, :id, :construction_name %></td>
     </tr>
+    <tr>
+      <th class="table__item">車両番号</th>
+      <td class="table__item"><%= f.collection_select :car_id, Car.all, :id, :number %></td>
+    </tr>
   </table>
 
   <div class="btn">
