@@ -1,6 +1,17 @@
-<div class="public">
-    <div class="daily-report">
-        <h2 class="daily-report__heading">作 業 日 報</h2>
-    </div> 
-</div>
+<div class="daily-report">
+    <h2 class="daily-report__heading">作 業 日 報</h2>
+
+    <%= form_with model: @daily_report, url: daily_reports_path, local: false do |f| %>
+        <table class="daily-report__contents1">
+            <tr class="daily-report__left">
+                <td class="daily-report__left--item">作業日時：<%=f.date_field :date %></td>
+                <td class="daily-report__left--item">天候：<%= f.text_field :weather %></td>
+            </tr>
+            <tr class="daily-report__contents1">
+                <td class="daily-report__left--item">記入者：<%= f.text_field : %></td>
+            </tr>
+        </table>
+    <% end %>
+    </div>
+
 
