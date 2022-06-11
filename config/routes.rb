@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
+    root to: "homes#top"
     resources :daily_reports, only: [:new, :create]
   end
 
