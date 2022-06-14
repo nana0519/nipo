@@ -5,7 +5,9 @@
         <table class="daily-report__contents1">
             <tr class="daily-report__left">
                 <td class="daily-report__left--item">作業日時：<%=f.date_field :date %></td>
-                <td class="daily-report__left--item">天候：<%= f.text_field :weather %></td>
+            </tr>
+            <tr class="daily-report__left">
+                <td class="daily-report__left--item">天候：<%= f.text_field :weather, class: "daily-report__left--form" %></td>
             </tr>
             <tr class="daily-report__contents1">
                 <td class="daily-report__left--item">記入者：</td>
