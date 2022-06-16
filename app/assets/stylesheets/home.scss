@@ -1,6 +1,7 @@
 .home {
   width: 90%;
   display: flex;
+  margin: 0 auto;
 
   &__category {
     display: inline-block;
@@ -19,5 +20,22 @@
   &__category:hover {
     background-color: #8FBC8F;
     color: #fff;
+  }
+
+  &__btn {
+    margin: 50px auto;
+    
+    &--item {
+      width: 40%;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #eb6100;
+      color: #fff;
+      text-decoration: none;
+      font-size: large;
+    }
+    &--item:hover {
+      background: #f56500;
+    }
   }
 }

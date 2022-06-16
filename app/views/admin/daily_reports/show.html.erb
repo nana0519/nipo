@@ -54,15 +54,13 @@
 
     <tr class="daily-report__flex">
       <th class="daily-report__item-heading">材料</th>
-      <td class="daily-report__item-area2"><%= @daily_report.material %></td>
-      <td class="daily-report__item-area2">【請求しない分】</td>
+      <td class="daily-report__item-area2"><%= @daily_report.claim %></td>
+      <td class="daily-report__item-area2">【請求しない分】<%= @daily_report.material %></td>
     </tr>
 
     <tr class="daily-report__flex">
       <th class="daily-report__item-heading">購入分<br>(燃料等)</th>
-      <td class="daily-report__item-area1">
-      <%= @daily_report.purchase %><%= @daily_report.price %>
-    </td>
+      <td class="daily-report__item-area1"><%= @daily_report.purchase %></td>
     </tr>
 
     <tr class="daily-report__flex">

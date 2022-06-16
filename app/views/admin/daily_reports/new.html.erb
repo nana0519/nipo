@@ -11,12 +11,12 @@
       <td class="table__item"><%= f.date_field :date %></td>
     </tr>
     <tr>
-      <th class="table__item">従業員名</th>
+      <th class="table__item">記入者</th>
       <td class="table__item"><%= f.collection_select :end_user_id, EndUser.all, :id, :name %></td>
     </tr>
     <tr>
       <th class="table__item">業者名</th>
-      <td class="table__form"><%= f.collection_select :company_id, Company.all, :id, :company_name %></td>
+      <td class="table__item"><%= f.collection_select :company_id, Company.all, :id, :company_name %></td>
     </tr>
     <tr>
       <th class="table__item">現場名</th>
