@@ -7,45 +7,45 @@
                 <td class="daily-report__left--item">作業日時：<%=f.date_field :date %></td>
             </tr>
             <tr class="daily-report__left">
-                <td class="daily-report__left--item">天  候：<%= f.text_field :weather, class: "daily-report__left--form" %></td>
+                <td class="daily-report__left--item">天  候：<%= f.select :weather, DailyReport.weathers.keys.to_a, class: "daily-report__left--form" %></td>
             </tr>
             <tr class="daily-report__contents1">
                 <td class="daily-report__left--item">記入者：<%= f.collection_select :end_user_id, EndUser.all, :id, :name, {}, {class: "daily-report__left--form"} %></td>
             </tr>
         </table>
-        
+
         <table class="daily-report__contents2">
             <tr class="daily-report__flex">
                 <th class="daily-report__item-heading">業者名</th>
                 <td class="daily-report__item-form"><%= f.collection_select :company_id, Company.all, :id, :company_name, {}, {class: "daily-report__item-form--format"} %></td>
             </tr>
-            
+
             <tr class="daily-report__flex">
                 <th class="daily-report__item-heading">現場名</th>
                 <td class="daily-report__item-form"><%= f.collection_select :construction_id, Construction.all, :id, :construction_name, {}, {class: "daily-report__item-form--format"} %></td>
             </tr>
-            
+
             <tr class="daily-report__flex">
                 <th class="daily-report__item-heading">作業者名</th>
                 <td class="daily-report__item-form"><%= f.text_field :workers, :placeholder => "田中太郎　山本武(空白区切り)", class: "daily-report__item-form--format" %></td>
             </tr>
-            
+
             <tr class="daily-report__flex">
                 <th class="daily-report__item-heading">作業内容</th>
                 <td class="daily-report__item-form"><%= f.text_area :content, class: "daily-report__item-form--format2" %></td>
             </tr>
-            
+
             <tr class="daily-report__flex">
                  <th class="daily-report__item-heading">材料</th>
                  <td class="daily-report__item-form2"><%= f.text_area :claim, class: "daily-report__item-form--format3" %></td>
                  <td class="daily-report__item-form2">【請求しない分】<br><%= f.text_area :material, class: "daily-report__item-form--format3" %></td>
             </tr>
-            
+
             <tr class="daily-report__flex">
               <th class="daily-report__item-heading">購入分<br>(燃料等)</th>
               <td class="daily-report__item-form"><%= f.text_area :purchase, class: "daily-report__item-form--format2" %></td>
             </tr>
-            
+
             <tr class="daily-report__flex">
               <th class="daily-report__item-heading">車両番号</th>
               <td class="daily-report__item-side--small"><%= f.collection_select :car_id, Car.all, :id, :number, {}, {class: "daily-report__item-form--format"} %></td>
@@ -55,12 +55,12 @@
                 (終了距離)<%= f.text_field :finish_distance, class: "daily-report__item-form--format" %>
               </td>
             </tr>
-            
+
             <tr class="daily-report__flex">
               <th class="daily-report__item-heading">高速代</th>
               <td class="daily-report__item-form"><%= f.text_field :toll, class: "daily-report__item-form--format" %>円</td>
             </tr>
-            
+
             <tr class="daily-report__flex">
               <th class="daily-report__item-heading">残業</th>
               <td class="daily-report__item-side--small"><%= f.text_field :overtime, class: "daily-report__item-form--format" %>h</td>
@@ -76,12 +76,16 @@
                   <%= f.time_select :start_time,  class: "daily-report__item-form--format" %>～<%= f.time_select :finish_time, class: "daily-report__item-form--format" %>
               </td>
             </tr>
-            
+
             <tr class="daily-report__flex">
               <th class="daily-report__item-heading">連絡事項</th>
               <td class="daily-report__item-form"><%= f.text_area :comment, class: "daily-report__item-form--format2" %></td>
             </tr>
         </table>
+        
+        <div class="btn">
+            <%= f.submit "送信", class: "btn__green" %>
+        </div>
     <% end %>
     </div>
 
