@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: "homes#top"
-    resources :daily_reports, only: [:new, :create]
+    resources :daily_reports, only: [:new, :create] do
+      collection do
+        get :thank_you
+      end
+    end
   end
 
   # 管理者
@@ -33,7 +37,7 @@ Rails.application.routes.draw do
       end
     end
     resources :daily_reports
-      
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

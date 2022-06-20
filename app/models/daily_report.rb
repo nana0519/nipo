@@ -5,4 +5,6 @@ class DailyReport < ApplicationRecord
   belongs_to :car
     
   has_many_attached :daily_report_images
+  
+  enum weather: { 晴れ: 0, くもり: 1, 雨: 2, 雪: 3 }
 end
