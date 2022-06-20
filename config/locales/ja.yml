@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+     daily_report:
+        start_time: "%H:%M"
+        finish_time: "%H:%M"

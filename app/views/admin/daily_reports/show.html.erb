@@ -84,7 +84,7 @@
       <th class="daily-report__item-heading">夜勤</th>
       <td class="daily-report__item-side--small"><%= @daily_report.night_shift == false ? "無" : "有" %></td>
       <th class="daily-report__item-heading">作業時間</th>
-      <td class="daily-report__item-side--form2"><%= @daily_report.start_time %>～<%= @daily_report.finish_time %></td>
+      <td class="daily-report__item-side--form2"><%= @daily_report.start_time.strftime("%H:%M") %>～<%= @daily_report.finish_time.strftime("%H:%M") %></td>
     </tr>
 
     <tr class="daily-report__flex">
