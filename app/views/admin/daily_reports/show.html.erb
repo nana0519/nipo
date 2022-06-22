@@ -2,11 +2,15 @@
   <h2 class="daily-report__heading">作 業 日 報</h2>
 
   <div>
-    <% if @daily_report.daily_report_images.attached? %>
+    <!--< if @daily_report.daily_report_images.attached? %>-->
+    <ul>
       <% @daily_report.daily_report_images.each do |image| %>
+      <li>
         <%= image_tag image, size: "1000x1500" %>
+      </li>
       <% end %>
-    <% end %>
+    </ul>
+    <!--< end %>-->
   </div>
 
   <table class="daily-report__contents1">
@@ -84,7 +88,11 @@
       <th class="daily-report__item-heading">夜勤</th>
       <td class="daily-report__item-side--small"><%= @daily_report.night_shift == false ? "無" : "有" %></td>
       <th class="daily-report__item-heading">作業時間</th>
-      <td class="daily-report__item-side--form2"><%= @daily_report.start_time.strftime("%H:%M") %>～<%= @daily_report.finish_time.strftime("%H:%M") %></td>
+      <td class="daily-report__item-side--form2">
+        <% unless @daily_report.start_time.nil? && @daily_report.finish_time.nil? %>
+          <%= @daily_report.start_time.strftime("%H:%M") %>～<%= @daily_report.finish_time.strftime("%H:%M") %>
+        <% end %>
+      </td>
     </tr>
 
     <tr class="daily-report__flex">
