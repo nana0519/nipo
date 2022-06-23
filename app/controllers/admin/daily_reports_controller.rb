@@ -17,6 +17,11 @@ class Admin::DailyReportsController < ApplicationController
   def show
     @daily_report = DailyReport.find(params[:id])
   end
+  
+  def image
+    daily_report = DailyReport.find(params[:id])
+    @images = daily_report.daily_report_images
+  end
 
   private
 

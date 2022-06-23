@@ -1,16 +1,10 @@
 <div class="daily-report">
   <h2 class="daily-report__heading">作 業 日 報</h2>
 
-  <div>
-    <!--< if @daily_report.daily_report_images.attached? %>-->
-    <ul>
-      <% @daily_report.daily_report_images.each do |image| %>
-      <li>
-        <%= image_tag image, size: "1000x1500" %>
-      </li>
-      <% end %>
-    </ul>
-    <!--< end %>-->
+  <div class="daily-report__image">
+    <% if @daily_report.daily_report_images.attached? %>
+      <%= link_to "画像はこちら", image_admin_daily_report_path(@daily_report) %>
+    <% end %>
   </div>
 
   <table class="daily-report__contents1">

@@ -6,6 +6,11 @@
   height: 1200px;
   margin: 20px auto;
   border: solid 2px #000;
+  
+  &__image {
+    width: 70%;
+    margin: 20px auto 0;
+  }
 
   &__heading {
     width: 70%;
