@@ -22,6 +22,7 @@
 
 </table>
 
-<div class="paginate">
-    <%= paginate @daily_reports %>
-</div>
+<ul class="paginate">
+    <li class="paginate__item"><%= paginate @daily_reports %></li>
+    <li class="paginate__item"><%= link_to "戻る", constructions_index_admin_constructions_path %></li>
+</ul>

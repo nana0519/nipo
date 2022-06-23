@@ -19,12 +19,12 @@ class Admin::ConstructionsController < ApplicationController
   end
 
   def constructions_index
-    @constructions = Construction.page(params[:page])
+    @constructions = Construction.order(created_at: :desc).page(params[:page])
   end
 
   def end_users_index
     @construction = Construction.find(params[:id])
-    @daily_reports = @construction.daily_reports.page(params[:id])
+    @daily_reports = @construction.daily_reports.order(date: :desc).page(params[:page]).per(15)
   end
 
   def show

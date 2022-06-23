@@ -1,0 +1,12 @@
+.paginate {
+  width: 30%;
+  margin: 50px auto;
+  display: flex;
+  
+  &__item {
+    list-style: none;
+  }
+  &__item:last-child {
+    margin-left: auto;
+  }
+}
