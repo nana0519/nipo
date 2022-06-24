@@ -37,9 +37,16 @@ Rails.application.routes.draw do
         get :end_users_index
       end
     end
+    
     resources :daily_reports, only: [:new, :create, :show] do
       member do
         get :image
+      end
+    end
+    
+    resources :work_schedules, only: [:index, :show] do
+      collection do
+        get :end_users_index
       end
     end
 

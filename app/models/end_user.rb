@@ -5,6 +5,7 @@ class EndUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :daily_reports, dependent: :destroy
+  belongs_to :work_schedule
   
     def update_without_password(params, *options)
     # current_password = params.delete(:current_password)
