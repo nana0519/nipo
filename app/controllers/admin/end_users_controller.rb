@@ -21,6 +21,6 @@ class Admin::EndUsersController < ApplicationController
   private
   
   def end_user_params
-    params.require(:end_user).permit(:name, :email, :retirement)
+    params.require(:end_user).permit(:name, :email, :retirement, :password)
   end
 end
