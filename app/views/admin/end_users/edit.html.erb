@@ -11,6 +11,10 @@
       <td><%= f.text_field :email %></td>
     </tr>
     <tr>
+      <th><%= f.label :パスワード %></th>
+      <td><%= f.text_field :password %></td>
+    </tr>
+    <tr>
       <th><%= f.label :ステータス %></th>
       <td>
         <%= f.radio_button :retirement, false %>
@@ -20,13 +24,7 @@
       </td>
     </tr>
   </table>
-  <div>
-    <%= f.submit "変更を保存" %>
+  <div class="btn">
+    <%= f.submit "変更を保存", class: "btn__green" %>
   </div>
 <% end %>
-
-<%= link_to "パスワード変更", edit_end_user_password_path %>
-
-<div>
-  <%= link_to "社員一覧へ戻る", admin_end_users_path %>
-</div>

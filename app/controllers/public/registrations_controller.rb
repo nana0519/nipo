@@ -4,7 +4,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, only: [:cancel]
   prepend_before_action :authenticate_scope!, only: [:update, :destroy]
   before_action :creatable?, only: [:new, :create]
-  before_action :editable?, only: [:edit, :updat]
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -24,14 +23,8 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  def edit
-    if by_admin_user?(params)
-      self.resource = resource_class.to_adapter.get!(params[:id])
-    else
-      authenticate_scope!
-      super
-    end
-  end
+  # def edit
+  # end
 
   # PUT /resource
   # def update
@@ -60,23 +53,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # 管理者のみEndUserを編集することができる
-  def editable?
-    if !current_admin
-      redirect_to new_end_user_session_path
-    end
-  end
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
   
   def by_admin_user?(params)
     params[:id].present? && current_admin
-  end
-  
-  def update_resource_without_password(resource, params)
-    resource.update_without_password(params)
   end
   
   # If you have extra params to permit, append them to the sanitizer.

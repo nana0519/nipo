@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   # EndUser
-  devise_for :end_users, controllers: {
+  devise_for :end_users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
-    sessions: "public/sessions",
-    passwords: "public/passwords"
+    sessions: "public/sessions"
   }
   devise_scope :end_user do
     get "end_users/:id/edit" => "public/registrations#edit", as: :edit_other_end_user_registration
