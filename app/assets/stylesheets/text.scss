@@ -1,0 +1,12 @@
+.text {
+  text-align: center;
+  margin-top: 50px;
+  
+  &__message {
+    font-size: large;
+  }
+  
+  &__image {
+    width: 90%;
+  }
+}

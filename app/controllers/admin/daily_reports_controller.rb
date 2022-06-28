@@ -16,8 +16,18 @@ class Admin::DailyReportsController < ApplicationController
 
   def show
     @daily_report = DailyReport.find(params[:id])
+    @workers = @daily_report.workers
+    unless @workers == nil
+      @workers = @workers.split(/[[:blank:]]+/).map{|n| n.tr("０-９", "0-9")}
+      temp = @workers.map{|n| n.delete("^0-9").to_i}.inject(:+)
+      if temp == 0
+        @number_of_people = @workers.length
+      else
+        @number_of_people = @workers.length.to_i - 1 + temp.to_i
+      end
+    end
   end
-  
+
   def image
     daily_report = DailyReport.find(params[:id])
     @images = daily_report.daily_report_images
