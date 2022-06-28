@@ -23,6 +23,7 @@ class Public::DailyReportsController < ApplicationController
     :company_id, 
     :construction_id,
     :car_id,
+    :workers,
     :weather,
     :content,
     :claim,
