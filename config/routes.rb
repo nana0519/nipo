@@ -36,11 +36,15 @@ Rails.application.routes.draw do
         get :end_users_index
       end
     end
+    
     resources :daily_reports, only: [:new, :create, :show] do
       member do
         get :image
+        get :end_users_index
       end
     end
+    
+    resources :work_schedules, only: [:index, :show]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
