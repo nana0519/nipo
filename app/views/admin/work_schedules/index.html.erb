@@ -1,0 +1,17 @@
+<h2 class="heading">勤務表</h2>
+
+<table class="table">
+  <thead class="table__heading">
+    <tr class="table__row">
+      <td class="table__item">年-月</td>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @months.each do |month| %>
+      <tr class="table__row">
+        <td><%= link_to month,  end_users_index_admin_daily_report_path(@daily_reports) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

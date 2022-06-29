@@ -41,14 +41,11 @@ Rails.application.routes.draw do
     resources :daily_reports, only: [:new, :create, :show] do
       member do
         get :image
-      end
-    end
-    
-    resources :work_schedules, only: [:index, :show] do
-      collection do
         get :end_users_index
       end
     end
+    
+    resources :work_schedules, only: [:index, :show]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
