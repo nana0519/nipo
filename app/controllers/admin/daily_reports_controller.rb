@@ -32,10 +32,11 @@ class Admin::DailyReportsController < ApplicationController
     daily_report = DailyReport.find(params[:id])
     @images = daily_report.daily_report_images
   end
-  
+
   def end_users_index
     months = DailyReport.pluck(:date).map{|date| date.strftime("%Y-%m")}.uniq
     @daily_reports = DailyReport.where("date like ?", "%#{months.join("")}%")
+    @daily_reports = @daily_reports.group(:end_user_id)
   end
 
   private
