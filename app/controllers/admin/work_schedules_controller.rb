@@ -7,5 +7,7 @@ class Admin::WorkSchedulesController < ApplicationController
   
   def show
     @end_user = EndUser.find(params[:id])
+    @months = DailyReport.pluck(:date).map{|date| date.strftime("%Y-%m")}.uniq
+    @daily_reports = DailyReport.where("date like ?", "%#{@months.join("")}%")
   end
 end

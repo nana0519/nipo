@@ -35,8 +35,9 @@ class Admin::DailyReportsController < ApplicationController
 
   def end_users_index
     months = DailyReport.pluck(:date).map{|date| date.strftime("%Y-%m")}.uniq
-    @daily_reports = DailyReport.where("date like ?", "%#{months.join("")}%")
-    @daily_reports = @daily_reports.group(:end_user_id)
+     @daily_reports = months.each do |month|
+                       DailyReport.where("date like ?", "%#{month}%")
+                      end
   end
 
   private
