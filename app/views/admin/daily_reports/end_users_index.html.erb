@@ -1,0 +1,17 @@
+<h2 class="heading">勤務表</h2>
+
+<table class="table">
+  <thead class="table__heading">
+    <tr class="table__row">
+      <th class="table__item"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @daily_reports.each do |daily_report| %>
+      <tr>
+        <td><%=link_to daily_report.end_user.name, admin_work_schedule_path(daily_report.end_user_id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

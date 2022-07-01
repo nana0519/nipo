@@ -3,7 +3,6 @@ class DailyReport < ApplicationRecord
   belongs_to :company
   belongs_to :construction
   belongs_to :car
-  belongs_to :work_schedule
     
   has_many_attached :daily_report_images
   
