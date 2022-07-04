@@ -1,16 +1,24 @@
 <h2 class="heading">勤務表</h2>
 
+<div class="link">
+  <%= link_to "勤務月作成", new_admin_work_schedule_path, class: "link__green" %>
+</div>
+
 <table class="table">
   <thead class="table__heading">
     <tr class="table__row">
-      <td class="table__item">年-月</td>
+      <td class="table__item">年月:従業員</td>
     </tr>
   </thead>
-  
+
   <tbody>
-    <% @months.each do |month| %>
+    <% @work_schedules.each do |work_schedule| %>
       <tr class="table__row">
-        <td><%= link_to month,  end_users_index_admin_daily_report_path(@daily_reports) %></td>
+        <td>
+          <%= link_to admin_work_schedule_path(work_schedule) do %>
+            <%= work_schedule.date.to_s[0..3] + "年" + work_schedule.date.to_s[4..5] + "月" %>:<%= work_schedule.end_user.name %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

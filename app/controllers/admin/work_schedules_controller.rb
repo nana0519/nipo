@@ -1,13 +1,29 @@
 class Admin::WorkSchedulesController < ApplicationController
   
+  def new
+    @work_schedule = WorkSchedule.new
+  end
+  
+  def create
+    @work_schedule = WorkSchedule.new(work_schedule_params)
+    if @work_schedule.save
+      redirect_to admin_work_schedules_path
+    else
+      render "new"
+    end
+  end
+  
   def index
-    @months = DailyReport.pluck(:date).map{|date| date.strftime("%Y-%m")}.uniq
-    @daily_reports = DailyReport.where("date like ?", "%#{@months.join("")}%")
+    @work_schedules = WorkSchedule.all
   end
   
   def show
-    @end_user = EndUser.find(params[:id])
-    @months = DailyReport.pluck(:date).map{|date| date.strftime("%Y-%m")}.uniq
-    @daily_reports = DailyReport.where("date like ?", "%#{@months.join("")}%")
+    @work_schedule = WorkSchedule.find(params[:id])
+  end
+  
+  private
+  
+  def work_schedule_params
+    params.require(:work_schedule).permit(:date, :end_user_id)
   end
 end

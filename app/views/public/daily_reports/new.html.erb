@@ -3,8 +3,11 @@
 
     <%= form_with model: @daily_report, url: daily_reports_path, local: false do |f| %>
         <table class="daily-report__contents1">
+            <tr class="daily_report__left">
+              <td class="daily_report__left--item">勤務月：<%= f.collection_select :work_schedule_id, WorkSchedule.all, :id, :date %></td>
+            </tr>
             <tr class="daily-report__left">
-                <td class="daily-report__left--item">作業日時：<%=f.date_field :date %></td>
+                <td class="daily-report__left--item">作業日時：<%= f.date_field :date %></td>
             </tr>
             <tr class="daily-report__left">
                 <td class="daily-report__left--item">天  候：<%= f.select :weather, DailyReport.weathers.keys.to_a, class: "daily-report__left--form" %></td>

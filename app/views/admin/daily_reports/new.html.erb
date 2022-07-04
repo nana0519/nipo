@@ -3,6 +3,10 @@
 <%= form_with model: @daily_report, url: admin_daily_reports_path, loclal: false do |f| %>
   <table class="table">
     <tr>
+      <th class="table__item">勤務月</th>
+      <td class="table__item"><%= f.collection_select :work_schedule_id, WorkSchedule.all, :id, :date %></td>
+    </tr>
+    <tr>
       <th class="table__item">画像</th>
       <td class="table__item"><%= f.file_field :daily_report_images, multiple: true %></td>
     </tr>

@@ -18,6 +18,7 @@ class Public::DailyReportsController < ApplicationController
   
   def daily_report_params
     params.require(:daily_report).permit(
+    :work_schedule_id,
     :date,
     :end_user_id, 
     :company_id, 

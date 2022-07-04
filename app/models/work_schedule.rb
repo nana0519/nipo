@@ -1,3 +1,4 @@
 class WorkSchedule < ApplicationRecord
-  belongs_to :end_users
+  belongs_to :end_user
+  has_many :daily_reports, dependent: :nullify
 end
