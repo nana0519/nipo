@@ -22,7 +22,7 @@ class Admin::DailyReportsController < ApplicationController
       temp = @workers.map{|n| n.delete("^0-9").to_i}.inject(:+)
       if temp == 0
         @number_of_people = @workers.length
-      else
+      elsif @workers.empty? == false
         @number_of_people = @workers.length.to_i - 1 + temp.to_i
       end
     end
@@ -33,16 +33,9 @@ class Admin::DailyReportsController < ApplicationController
     @images = daily_report.daily_report_images
   end
 
-  def end_users_index
-    months = DailyReport.pluck(:date).map{|date| date.strftime("%Y-%m")}.uniq
-     @daily_reports = months.each do |month|
-                       DailyReport.where("date like ?", "%#{month}%")
-                      end
-  end
-
   private
 
    def daily_report_params
-    params.require(:daily_report).permit(:date, :end_user_id, :company_id, :construction_id, :car_id, daily_report_images: [])
+    params.require(:daily_report).permit(:date, :end_user_id, :company_id, :construction_id, :car_id, :work_schedule_id, daily_report_images: [])
    end
 end

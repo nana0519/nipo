@@ -1,0 +1,18 @@
+<h2 class="heading">勤務月作成</h2>
+
+<%= form_with model: @work_schedule, url: admin_work_schedules_path, local: false do |f| %>
+  <table class="table">
+    <tr>
+      <th class="table__label">勤務月</th>
+      <td class="table_form"><%= f.text_field :date, :placeholder => "202201" %></td>
+    </tr>
+    <tr>
+      <th class="table__label">従業員</th>
+      <td class="table_form"><%= f.collection_select :end_user_id, EndUser.all, :id, :name %></td>
+    </tr>
+  </table>
+  
+  <div class="btn">
+    <%= f.submit "登録", class: "btn__green" %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 <div class="work_schedules">
   <div class="work_schedules__heading">
-    <%=@end_user.name %>
+    <%= @work_schedule.date.to_s[0..3] + "年" + @work_schedule.date.to_s[4..5] + "月" %>:<%= @work_schedule.end_user.name %>
   </div>
   
   <table>
