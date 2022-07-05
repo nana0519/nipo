@@ -19,6 +19,10 @@ class Admin::WorkSchedulesController < ApplicationController
   
   def show
     @work_schedule = WorkSchedule.find(params[:id])
+    @daily_reports = @work_schedule.daily_reports
+    year = @work_schedule.date.to_s[0..3].to_i 
+    month = @work_schedule.date.to_s[4..5].to_i
+    @dates = Date.new(year,month).all_month
   end
   
   private
