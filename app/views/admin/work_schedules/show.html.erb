@@ -5,7 +5,47 @@
   
   <table>
     <tr>
-      <td></td>
+      <th>日</th>
+      <th>曜日</th>
+      <th>業者名</th>
+      <th>現場</th>
     </tr>
+    <% @dates.each do |date| %>
+    <tr>
+      <td><%= date.strftime("%d") %></td>
+      <td>
+        <% case  date.strftime("%w") %>
+          <% when "0" then %>
+            （日）
+          <% when "1" then %>
+            （月）
+          <% when "2" then %>
+            （火）
+          <% when "3" then %>
+            （水）
+          <% when "4" then %>
+            （木）
+          <% when "5" then %>
+            （金）
+          <% when "6" then %>
+            （土）
+        <% end %>
+      </td>
+      <td>
+        <% @daily_reports.each do |daily_report| %>
+         <% if daily_report.date == date %>
+           <%= daily_report.company.company_name %>
+         <% end %>
+       <% end %>
+      </td>
+      <td>
+        <% @daily_reports.each do |daily_report| %>
+         <% if daily_report.date == date %>
+           <%= daily_report.construction.construction_name %>
+         <% end %>
+       <% end %>
+      </td>
+    </tr>
+    <% end %> 
   </table>
-</div>
+  
