@@ -2,11 +2,12 @@
   <div class="work_schedules__heading">
     <%= @work_schedule.date.to_s[0..3] + "年" + @work_schedule.date.to_s[4..5] + "月" %>:<%= @work_schedule.end_user.name %>
   </div>
-  
+
   <table>
     <tr>
       <th>日</th>
       <th>曜日</th>
+      <th>備考</th>
       <th>業者名</th>
       <th>現場</th>
     </tr>
@@ -33,6 +34,13 @@
       </td>
       <td>
         <% @daily_reports.each do |daily_report| %>
+          <% if daily_report.date == date %>
+            <%= "夜勤" if daily_report.night_shift == true %>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% @daily_reports.each do |daily_report| %>
          <% if daily_report.date == date %>
            <%= daily_report.company.company_name %>
          <% end %>
@@ -46,6 +54,10 @@
        <% end %>
       </td>
     </tr>
-    <% end %> 
+    <% end %>
   </table>
-  
+
+  <div>
+    勤務:<%= @daily_reports.count %>
+  </div>
+</div>
