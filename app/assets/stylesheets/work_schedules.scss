@@ -1,11 +1,38 @@
 .work_schedules {
   width: 80%;
   height: 1200px;
-  margin: 30px auto;
+  margin: 20px auto;
   border: solid 2px;
-  
+
   &__heading {
-    margin: 50px;
+    margin: 20px auto;
+    width: 75%;
     font-size: large;
+    font-weight: bold;
+  }
+
+  &__table {
+    width: 75%;
+    margin: 0 auto;
+    border-collapse: collapse;
+
+    &--item {
+      text-align: center;
+      border: solid 1px;
+    }
+
+    &--heading {
+      border: solid 1px #000;
+      background-color: #555555;
+      color: #fff;
+
+    }
+  }
+  
+  &__note {
+    width: 75%;
+    margin: 20px auto;
+    padding: 10px;
+    border: solid 1px;
   }
 }

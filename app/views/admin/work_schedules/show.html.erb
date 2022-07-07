@@ -1,20 +1,21 @@
 <div class="work_schedules">
+  <h2 class="heading">勤務表</h2>
   <div class="work_schedules__heading">
     <%= @work_schedule.date.to_s[0..3] + "年" + @work_schedule.date.to_s[4..5] + "月" %>:<%= @work_schedule.end_user.name %>
   </div>
 
-  <table>
+  <table class="work_schedules__table">
     <tr>
-      <th>日</th>
-      <th>曜日</th>
-      <th>備考</th>
-      <th>業者名</th>
-      <th>現場</th>
+      <th class="work_schedules__table--heading">日</th>
+      <th class="work_schedules__table--heading">曜日</th>
+      <th class="work_schedules__table--heading">備考</th>
+      <th class="work_schedules__table--heading">業者名</th>
+      <th class="work_schedules__table--heading">現場</th>
     </tr>
     <% @dates.each do |date| %>
     <tr>
-      <td><%= date.strftime("%d") %></td>
-      <td>
+      <td class="work_schedules__table--item"><%= date.strftime("%d") %></td>
+      <td class="work_schedules__table--item">
         <% case  date.strftime("%w") %>
           <% when "0" then %>
             （日）
@@ -32,21 +33,21 @@
             （土）
         <% end %>
       </td>
-      <td>
+      <td class="work_schedules__table--item">
         <% @daily_reports.each do |daily_report| %>
           <% if daily_report.date == date %>
             <%= "夜勤" if daily_report.night_shift == true %>
           <% end %>
         <% end %>
       </td>
-      <td>
+      <td class="work_schedules__table--item">
         <% @daily_reports.each do |daily_report| %>
          <% if daily_report.date == date %>
            <%= daily_report.company.company_name %>
          <% end %>
        <% end %>
       </td>
-      <td>
+      <td class="work_schedules__table--item">
         <% @daily_reports.each do |daily_report| %>
          <% if daily_report.date == date %>
            <%= daily_report.construction.construction_name %>
@@ -57,7 +58,7 @@
     <% end %>
   </table>
 
-  <div>
-    勤務:<%= @daily_reports.count %>
+  <div class="work_schedules__note">
+    勤務日数:<%= @daily_reports.count %>
   </div>
 </div>
