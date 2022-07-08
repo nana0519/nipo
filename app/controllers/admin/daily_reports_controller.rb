@@ -15,6 +15,7 @@ class Admin::DailyReportsController < ApplicationController
   end
 
   def show
+    @check = DailyReport.find(params[:id])
     @daily_report = DailyReport.find(params[:id])
     @workers = @daily_report.workers
     unless @workers == nil
@@ -32,10 +33,24 @@ class Admin::DailyReportsController < ApplicationController
     daily_report = DailyReport.find(params[:id])
     @images = daily_report.daily_report_images
   end
+  
+  def update
+    @check = DailyReport.find(params[:id])
+    if @check.update(check_params)
+      redirect_to admin_root_path
+    else
+      render "show"
+    end
+  end
 
   private
 
    def daily_report_params
     params.require(:daily_report).permit(:date, :end_user_id, :company_id, :construction_id, :car_id, :work_schedule_id, daily_report_images: [])
    end
+   
+   def check_params
+     params.require(:daily_report).permit(:check)
+   end
+   
 end

@@ -95,4 +95,15 @@
     </tr>
 
   </table>
+  
+  <div class="daily-report__check">
+    <%= form_with model: @check, url: admin_daily_report_path(@daily_report) do |f| %>
+      <%= f.radio_button :check, false %>
+      <%= f.label :確認, "未確認", value: false %>
+      <%= f.radio_button :check, true %>
+      <%= f.label :確認, "確認済み", value: true %>
+      
+      <%= f.submit "更新", class: "btn__green--small" %>
+    <% end %>
+  </div>
 </div>
