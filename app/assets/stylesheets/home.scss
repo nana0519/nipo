@@ -1,7 +1,10 @@
 .home {
-  width: 90%;
-  display: flex;
-  margin: 0 auto;
+  width: 55%;
+  margin: 20px auto 100px;
+  
+  &__item {
+    text-align: center;
+  }
 
   &__category {
     display: inline-block;
@@ -36,6 +39,22 @@
     }
     &--item:hover {
       background: #f56500;
+    }
+  }
+  
+  &__note {
+    margin-top: 50px;
+    
+    &--text {
+      width: 70%;
+      margin: 10px auto;
+      color: #333333;
+    }
+    
+    &--item {
+      width: 70%;
+      margin: 0 auto;
+      padding-top: 10px;
     }
   }
 }

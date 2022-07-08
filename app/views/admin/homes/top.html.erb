@@ -1,10 +1,30 @@
 <div class="home">
-  <div>
+  <div class="home__item">
     <%= link_to "社員", admin_end_users_path, class: "home__category" %>
     <%= link_to "業者", admin_companies_path, class: "home__category" %>
     <%= link_to "現場", admin_constructions_path, class: "home__category" %>
     <%= link_to "車両", admin_cars_path, class: "home__category" %>
     <%= link_to "日報", constructions_index_admin_constructions_path, class: "home__category" %>
     <%= link_to "勤務表", admin_work_schedules_path, class: "home__category" %>
+  </div>
+
+  <div class="home__note">
+    <p class="home__note--text">-------未確認の日報-------</p>
+    <% if @daily_reports.present? %>
+      <% @daily_reports.each do |daily_report| %>
+        <div class="home__note--item">
+          <%= link_to admin_daily_report_path(daily_report) do %>
+            <%= daily_report.date.strftime("%Y年%m月%d日") %>：
+            <%= daily_report.end_user.name %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="home__note--text">未確認の日報はありません</p>
+    <% end %>
+    
+    <div class="paginate">
+      <%= paginate @daily_reports %>
+    </div>
   </div>
 </div>

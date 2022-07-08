@@ -37,7 +37,7 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :daily_reports, only: [:new, :create, :show] do
+    resources :daily_reports, only: [:new, :create, :show, :edit, :update] do
       member do
         get :image
       end
