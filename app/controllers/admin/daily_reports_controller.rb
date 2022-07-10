@@ -37,6 +37,7 @@ class Admin::DailyReportsController < ApplicationController
   def update
     @check = DailyReport.find(params[:id])
     if @check.update(check_params)
+      flash[:notice] = "更新しました。"
       redirect_to admin_root_path
     else
       render "show"
