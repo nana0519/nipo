@@ -4,6 +4,7 @@
     <thead class="table__heading">
         <tr class="table__row">
             <th class="table__item">Date：Name</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -16,6 +17,7 @@
                         <%= daily_report.end_user.name %>
                     <% end %>
                 </td>
+                <td><%= link_to "編集", edit_admin_daily_report_path(daily_report) %> </td>
             </tr>
         <% end %>
     </tbody>

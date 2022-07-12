@@ -34,6 +34,10 @@ class Admin::DailyReportsController < ApplicationController
     @images = daily_report.daily_report_images
   end
   
+  def edit
+    @daily_report = DailyReport.find(params[:id])
+  end
+  
   def update
     @check = DailyReport.find(params[:id])
     if @check.update(check_params)
@@ -41,6 +45,11 @@ class Admin::DailyReportsController < ApplicationController
       redirect_to admin_root_path
     else
       render "show"
+    end
+    
+    @daily_report = DailyReport.find(params[:id])
+    if @daily_report.update(edit_daily_report_params)
+      flash[:notice] = "更新しました。"
     end
   end
 
@@ -52,6 +61,32 @@ class Admin::DailyReportsController < ApplicationController
    
    def check_params
      params.require(:daily_report).permit(:check)
+   end
+   
+   def edit_daily_report_params
+    params.require(:daily_report).permit(
+    :work_schedule_id,
+    :date,
+    :end_user_id, 
+    :company_id, 
+    :construction_id,
+    :car_id,
+    :workers,
+    :weather,
+    :content,
+    :claim,
+    :material,
+    :purchase,
+    :start_distance,
+    :finish_distance,
+    :toll,
+    :overtime,
+    :night_shift,
+    :start_time,
+    :finish_time,
+    :comment,
+    daily_report_images: []
+    )
    end
    
 end
