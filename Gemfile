@@ -61,3 +61,4 @@ group :production do
 end
 gem 'cancancan'
 gem 'kaminari'
+gem 'devise-i18n'
