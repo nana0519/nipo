@@ -9,9 +9,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def after_sign_up_path_for(resource)
-    admin_root_path
+     sign_out(current_end_user)
+     admin_root_path
   end
-
+  
   # GET /resource/sign_up
   # def new
   #   super
