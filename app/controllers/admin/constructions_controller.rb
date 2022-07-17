@@ -47,7 +47,7 @@ class Admin::ConstructionsController < ApplicationController
   private
 
   def construction_params
-    params.require(:construction).permit(:construction_name, :content, :contract, :address)
+    params.require(:construction).permit(:construction_name, :content, :contract, :address, :status)
   end
 
 end

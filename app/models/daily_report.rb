@@ -7,5 +7,7 @@ class DailyReport < ApplicationRecord
     
   has_many_attached :daily_report_images
   
+  validates :date, presence: true
+  
   enum weather: { 晴れ: 0, くもり: 1, 雨: 2, 雪: 3 }
 end

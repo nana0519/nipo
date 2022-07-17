@@ -1,0 +1,5 @@
+ja:
+  activerecord:
+    attributes:
+      daily_report:
+        date: 日付
