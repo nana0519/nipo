@@ -59,6 +59,7 @@
   </table>
 
   <div class="work_schedules__note">
-    勤務日数:<%= @daily_reports.count %>
+    勤務日数：<%= @daily_reports.count %>日
+    (夜勤日数：<%= @daily_reports.where(night_shift: true).count %>日)
   </div>
 </div>

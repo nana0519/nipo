@@ -24,6 +24,15 @@
         <th class="table__item">住所</th>
         <td class="table__item"><%= f.text_field :address %></td>
       </tr>
+      <tr>
+        <th class="table__item">ステータス</th>
+        <td class="table__item">
+          <%= f.radio_button :status, false %>
+          <%= f.label :ステータス, "工事中", value:false %>
+          <%= f.radio_button :status, true %>
+          <%= f.label :ステータス, "完了", value:true %>
+        </td>
+      </tr>
   </table>
   
   <div class="btn">

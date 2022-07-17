@@ -27,6 +27,16 @@
     <th class="chart__label">住所</th>
     <td class="chart__item"><%= @construction.address %></td>
   </tr>
+  <tr class="chart__row">
+    <th class="chart__label">ステータス</th>
+    <td class="chart__item">
+      <% if @construction.status == false %>
+        工事中
+      <% elsif @construction.status == true %>
+        完了
+      <% end %>
+    </td>
+  </tr>
 </table>
 
 <div class="link__right">

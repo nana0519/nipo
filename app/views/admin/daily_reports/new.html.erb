@@ -1,3 +1,5 @@
+<%= render "layouts/error", resource: @daily_report %>
+
 <h2 class="heading">日報登録</h2>
 
 <%= form_with model: @daily_report, url: admin_daily_reports_path, loclal: false do |f| %>
@@ -16,7 +18,7 @@
     </tr>
     <tr>
       <th class="table__item">記入者</th>
-      <td class="table__item"><%= f.collection_select :end_user_id, EndUser.all, :id, :name %></td>
+      <td class="table__item"><%= f.collection_select :end_user_id, EndUser.where(retirement: false), :id, :name %></td>
     </tr>
     <tr>
       <th class="table__item">業者名</th>
@@ -24,7 +26,7 @@
     </tr>
     <tr>
       <th class="table__item">現場名</th>
-      <td class="table__item"><%= f.collection_select :construction_id, Construction.all, :id, :construction_name %></td>
+      <td class="table__item"><%= f.collection_select :construction_id, Construction.where(status: false), :id, :construction_name %></td>
     </tr>
     <tr>
       <th class="table__item">車両番号</th>

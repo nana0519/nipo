@@ -13,7 +13,7 @@
                 <td class="daily-report__left--item">天  候：<%= f.select :weather, DailyReport.weathers.keys.to_a, class: "daily-report__left--form" %></td>
             </tr>
             <tr class="daily-report__contents1">
-                <td class="daily-report__left--item">記入者：<%= f.collection_select :end_user_id, EndUser.all, :id, :name, {}, {class: "daily-report__left--form"} %></td>
+                <td class="daily-report__left--item">記入者：<%= f.collection_select :end_user_id, EndUser.where(retirement: false), :id, :name, {}, {class: "daily-report__left--form"} %></td>
             </tr>
         </table>
 
@@ -25,7 +25,7 @@
 
             <tr class="daily-report__flex">
                 <th class="daily-report__item-heading">現場名</th>
-                <td class="daily-report__item-form"><%= f.collection_select :construction_id, Construction.all, :id, :construction_name, {}, {class: "daily-report__item-form--format"} %></td>
+                <td class="daily-report__item-form"><%= f.collection_select :construction_id, Construction.where(status: false), :id, :construction_name, {}, {class: "daily-report__item-form--format"} %></td>
             </tr>
 
             <tr class="daily-report__flex">
