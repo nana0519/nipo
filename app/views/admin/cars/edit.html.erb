@@ -1,3 +1,5 @@
+<%= render "layouts/error", resource: @car %>
+
 <h2 class="heading">車両編集画面</h2>
 
 <%= form_with model: @car, url: admin_car_path(@car), local: false do |f| %>

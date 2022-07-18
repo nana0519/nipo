@@ -1,3 +1,5 @@
+<%= render "layouts/error", resource: @work_schedule %>
+
 <h2 class="heading">勤務月作成</h2>
 
 <%= form_with model: @work_schedule, url: admin_work_schedules_path, local: false do |f| %>
