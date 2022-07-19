@@ -1,5 +1,10 @@
 ja:
   activerecord:
     attributes:
+      construction:
+        construction_name: 現場名
+      company:
+        company_name: 業者名
       daily_report:
         date: 日付
+      

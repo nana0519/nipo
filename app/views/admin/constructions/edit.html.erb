@@ -1,3 +1,5 @@
+<%= render "layouts/error", resource: @construction %>
+
 <h2 class="heading">現場編集</h2>
 
 <%= form_with model: @construction, url: admin_construction_path(@construction), local: false do |f| %>
