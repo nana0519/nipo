@@ -6,7 +6,7 @@
       <li class="header__link--item">
         <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: "header__link--item" %>
       </li>
-
+      
     <!--adminログイン後-->
     <% elsif admin_signed_in? %>
       <li clas="header__link--item">
