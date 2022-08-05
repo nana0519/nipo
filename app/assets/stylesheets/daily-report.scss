@@ -123,3 +123,37 @@
     margin: 50px auto 0;
   }
 }
+
+// スマホ画面
+@media (max-width: 425px) {
+  .daily-report {
+    width: 95%;
+    height: 1300px;
+    font-size: small;
+    
+   &__contents1 {
+     width: 100%;
+     margin-left: 10px;
+   }
+   
+   &__contents2 {
+     width: 100%;
+   }
+   
+   &__item-heading {
+     width: 12%;
+   }
+   
+   &__item-side--small {
+     width: 20%;
+   }
+   
+   &__item-side--form1 {
+     width: 52.8%;
+   }
+   
+   &__item-side--form2 {
+     width: 20.9%;
+   }
+  }
+}
