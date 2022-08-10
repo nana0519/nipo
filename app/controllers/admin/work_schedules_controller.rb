@@ -14,7 +14,7 @@ class Admin::WorkSchedulesController < ApplicationController
   end
   
   def index
-    @work_schedules = WorkSchedule.page(params[:page]).per(20)
+    @work_schedules = WorkSchedule.order(date: "DESC").page(params[:page]).per(20)
   end
   
   def show
