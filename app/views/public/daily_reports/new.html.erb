@@ -6,7 +6,7 @@
     <%= form_with model: @daily_report, url: daily_reports_path, local: false do |f| %>
         <table class="daily-report__contents1">
             <tr class="daily_report__left">
-              <td class="daily_report__left--item">勤務月：<%= f.collection_select :work_schedule_id, WorkSchedule.group(:date).order(date: "DESC"), :id, :date %></td>
+              <td class="daily_report__left--item">勤務月：<%= f.collection_select :work_schedule_id, @work_schedule.order(date: "DESC"), :id, :date %></td>
             </tr>
             <tr class="daily-report__left">
                 <td class="daily-report__left--item">作業日時：<%= f.date_field :date %></td>
@@ -15,7 +15,7 @@
                 <td class="daily-report__left--item">天  候：<%= f.select :weather, DailyReport.weathers.keys.to_a, class: "daily-report__left--form" %></td>
             </tr>
             <tr class="daily-report__contents1">
-                <td class="daily-report__left--item">記入者：<%= f.collection_select :end_user_id, EndUser.where(retirement: false), :id, :name, {}, {class: "daily-report__left--form"} %></td>
+                <td class="daily-report__left--item">記入者：<%= f.collection_select :end_user_id, @end_user, :id, :name, {}, {class: "daily-report__left--form"} %></td>
             </tr>
         </table>
 
